@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<form th:action="@{/books}" method="post">
+    <span>
+        Select authors
+    </span>
+    <div th:each="author : ${authors}">
+        <input type="checkbox" th:name="selectedAuthors" th:value="${author}">
+        <label th:text="${author}">
+            Label
+        </label>
+    </div>
+    <span>
+        Select genre
+    </span>
+    <div th:each="genre : ${genres}">
+        <input type="checkbox" th:name="selectedGenres" th:value="${genre}">
+        <label th:text="${genre}">
+            Genre
+        </label>
+    </div>
+    <span>
+        Creation year
+    </span>
+    <div>
+        <label>from</label><br>
+        <input type="number" th:name="yearFrom" value="1800">
+    </div>
+    <div>
+        <label>to</label><br>
+        <input type="number" th:name="yearTo" value="1850">
+    </div>
+    <div>
+        <input type="submit" value="Get books">
+    </div>
+</form>
+</body>
+</html>
